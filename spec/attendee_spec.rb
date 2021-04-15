@@ -9,10 +9,12 @@ RSpec.describe Attendee do
     it 'exists' do
       expect(attendee).to be_an_instance_of(Attendee)
     end
+
+    it 'has a name' do
+      expect(attendee.name).to eq("Bob")
+    end
   end
 end
-# attendee.name
-# #=> "Bob"
 # attendee.spending_money
 # #=> 20
 # attendee.interests
