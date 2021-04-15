@@ -10,10 +10,13 @@ RSpec.describe Carnival do
     it 'exists' do
       expect(jeffco_fair).to be_an_instance_of(Carnival)
     end
+
+    it 'has a name' do
+      expect(jeffco_fair.name).to eq("Jefferson County Fair")
+    end
   end
 end
-# jeffco_fair.name
-# #=> "Jefferson County Fair"
+
 # jeffco_fair.rides
 # #=> []
 # ferris_wheel = Ride.new({name: 'Ferris Wheel', cost: 0})
