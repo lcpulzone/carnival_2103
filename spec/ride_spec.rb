@@ -9,9 +9,12 @@ RSpec.describe Ride do
     it 'exists' do
       expect(ride).to be_an_instance_of(Ride)
     end
+
+    it 'has a name' do
+      expect(ride.name).to eq("Ferris Wheel")
+    end
   end
 end
-# ride.name
-# #=> "Ferris Wheel"
+
 # ride.cost
 # #=> 0
