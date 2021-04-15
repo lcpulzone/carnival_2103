@@ -7,7 +7,7 @@ RSpec.describe Attendee do
     attendee = Attendee.new('Bob', 20)
 
     it 'exists' do
-      expect(attendee).to eq(Attendee)
+      expect(attendee).to be_an_instance_of(Attendee)
     end
   end
 end
