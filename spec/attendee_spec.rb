@@ -13,10 +13,12 @@ RSpec.describe Attendee do
     it 'has a name' do
       expect(attendee.name).to eq("Bob")
     end
+
+    it 'has spending_money' do
+      expect(attendee.spending_money).to eq(20)
+    end
   end
 end
-# attendee.spending_money
-# #=> 20
 # attendee.interests
 # #=> []
 # attendee.add_interest('Bumper Cars')
