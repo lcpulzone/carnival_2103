@@ -13,8 +13,9 @@ RSpec.describe Ride do
     it 'has a name' do
       expect(ride.name).to eq("Ferris Wheel")
     end
+
+    it 'has a cost' do
+      expect(ride.cost).to eq(0)
+    end
   end
 end
-
-# ride.cost
-# #=> 0

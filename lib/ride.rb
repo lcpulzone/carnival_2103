@@ -1,5 +1,6 @@
 class Ride
-  attr_reader :name
+  attr_reader :name,
+              :cost
 
   def initialize(ride_params)
     @name = ride_params[:name]
