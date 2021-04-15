@@ -18,12 +18,13 @@ class Carnival
     @rides.each do |ride|
       ride_names << ride.name
     end
-    ride_names
 
     attendee_interest = []
-    ride_names.each do |ride_name|
-      if ride_name == attendee.interests
-        attendee_interest << ride_name
+    ride_names.each do |name|
+      attendee.interests.each do |interest|
+        if interest == name
+          attendee_interest << name
+        end
       end
     end
     attendee_interest
