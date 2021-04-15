@@ -2,7 +2,7 @@ require 'rspec'
 require './lib/ride'
 require './lib/attendee'
 
-RSpec describe Attendee do
+RSpec.describe Attendee do
   context 'initialization' do
     attendee = Attendee.new('Bob', 20)
 
