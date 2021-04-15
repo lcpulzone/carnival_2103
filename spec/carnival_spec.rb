@@ -58,6 +58,10 @@ RSpec.describe Carnival do
     bumper_cars = Ride.new({name: 'Bumper Cars', cost: 10})
     scrambler = Ride.new({name: 'Scrambler', cost: 15})
 
+    bob = Attendee.new("Bob", 0)
+    sally = Attendee.new('Sally', 20)
+    johnny = Attendee.new("Johnny", 5)
+
     jeffco_fair.add_ride(ferris_wheel)
     jeffco_fair.add_ride(bumper_cars)
     jeffco_fair.add_ride(scrambler)
@@ -67,10 +71,6 @@ RSpec.describe Carnival do
     end
 
     it 'can add attendees' do
-      bob = Attendee.new("Bob", 0)
-      sally = Attendee.new('Sally', 20)
-      johnny = Attendee.new("Johnny", 5)
-
       bob.add_interest('Ferris Wheel')
       bob.add_interest('Bumper Cars')
       sally.add_interest('Bumper Cars')
@@ -82,30 +82,15 @@ RSpec.describe Carnival do
 
       expect(jeffco_fair.attendees).to eq([bob, sally, johnny])
     end
+
+    it 'can return a hash of attendees and their interests' do
+      expected = {
+              ferris_wheel => [bob],
+              bumper_cars => [bob, sally, johnny],
+              scrambler => []
+      }
+
+      expect(jeffco_fair.attendees_by_ride_interest).to eq(expected)
+    end
   end
 end
-# #Attendees are added even if they don't have enough money for all/any exhibits.
-# jeffco_fair.attendees_by_ride_interest
-# #=> {
-# #    #<Ride:0x00007ffab5a3d3a8...> => [#<Attendee:0x00007ffab70bfce8...>],
-# #    #<Ride:0x00007ffab714bce8...> => [#<Attendee:0x00007ffab70bfce8...>, #<Attendee:0x00007ffab69069e8...>, #<Attendee:0x00007ffab7172d70...>],
-# #    #<Ride:0x00007ffab71607d8...> => []
-# #  }
-# jeffco_fair.ticket_lottery_contestants(bumper_cars)
-# #=> [#<Attendee:0x00007ffab70bfce8...>, #<Attendee:0x00007ffab7172d70...>]
-# jeffco_fair.draw_lottery_winner(bumper_cars)
-# #=> "Johnny"
-#
-# #In the above method, with this setup, "Johnny" or "Bob" could be returned here - Fun!
-# jeffco_fair.draw_lottery_winner(ferris_wheel)
-# #=> nil
-#
-# #If no contestants are eligible for the lottery, nil is returned.
-# jeffco_fair.announce_lottery_winner(scrambler)
-# #=> "Bob has won the IMAX exhibit"
-#
-# #We realize that, in this setup, Bob is not interested in the scrambler.  However, in your test, the result should match exactly.  You will need to stub the return of `draw_lottery_winner` as the above method should depend on that method :)
-# jeffco_fair.announce_lottery_winner(ferris_wheel)
-# #=> "No winners for this lottery"
-#
-# #If there are no contestants, there are no winners.

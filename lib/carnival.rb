@@ -33,4 +33,13 @@ class Carnival
   def admit(attendee)
     @attendees << attendee
   end
+
+  def attendees_by_ride_interest
+    rides_by_interest = Hash.new { |hash, key| hash[key] = [] }
+    @rides.each do |ride|
+      rides_by_interest[ride] = [@attendee]
+      rides_by_interest[ride] << [@attendee]
+    end
+    rides_by_interest
+  end
 end
