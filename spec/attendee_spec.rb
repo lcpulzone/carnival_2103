@@ -18,9 +18,15 @@ RSpec.describe Attendee do
       expect(attendee.spending_money).to eq(20)
     end
   end
+
+  context 'interests' do
+    attendee = Attendee.new('Bob', 20)
+
+    it 'starts with no interests' do
+      expect(attendee.interests).to eq([])
+    end
+  end
 end
-# attendee.interests
-# #=> []
 # attendee.add_interest('Bumper Cars')
 # attendee.add_interest('Ferris Wheel')
 # attendee.interests
