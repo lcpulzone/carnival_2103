@@ -20,19 +20,26 @@ RSpec.describe Carnival do
     end
   end
 
+  context 'rides' do
+    jeffco_fair = Carnival.new("Jefferson County Fair")
+    ferris_wheel = Ride.new({name: 'Ferris Wheel', cost: 0})
+    bumper_cars = Ride.new({name: 'Bumper Cars', cost: 10})
+    scrambler = Ride.new({name: 'Scrambler', cost: 15})
 
+    it 'can add rides' do
+      jeffco_fair.add_ride(ferris_wheel)
+      jeffco_fair.add_ride(bumper_cars)
+      jeffco_fair.add_ride(scrambler)
+
+      expected = [ferris_wheel, bumper_cars, scrambler]
+      
+      expect(jeffco_fair.rides).to eq(expected)
+    end
+
+  end
 end
-# ferris_wheel = Ride.new({name: 'Ferris Wheel', cost: 0})
-# #=> #<Ride:0x00007fe59506ede8...>
-# bumper_cars = Ride.new({name: 'Bumper Cars', cost: 10})
-# #=> #<Ride:0x00007fe594851930...>
-# scrambler = Ride.new({name: 'Scrambler', cost: 15})
-# #=> #<Ride:0x00007fe59314eb98...>
-# jeffco_fair.add_ride(ferris_wheel)
-# jeffco_fair.add_ride(bumper_cars)
-# jeffco_fair.add_ride(scrambler)
-# jeffco_fair.rides
-# #=> [#<Ride:0x00007fe59506ede8...>, #<Ride:0x00007fe594851930...>, #<Ride:0x00007fe59314eb98...>]
+
+#=> [#<Ride:0x00007fe59506ede8...>, #<Ride:0x00007fe594851930...>, #<Ride:0x00007fe59314eb98...>]
 # bob = Attendee.new('Bob', 20)
 # #=> #<Attendee:0x00007fe59507dc80...>
 # sally = Attendee.new('Sally', 20)
