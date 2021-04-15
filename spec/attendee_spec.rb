@@ -25,9 +25,14 @@ RSpec.describe Attendee do
     it 'starts with no interests' do
       expect(attendee.interests).to eq([])
     end
+
+    it 'can add interests' do
+      attendee.add_interest('Bumper Cars')
+      attendee.add_interest('Ferris Wheel')
+      
+      expected = ["Bumper Cars", "Ferris Wheel"]
+
+      expect(attendee.interests).to eq(expected)
+    end
   end
 end
-# attendee.add_interest('Bumper Cars')
-# attendee.add_interest('Ferris Wheel')
-# attendee.interests
-# #=> ["Bumper Cars", "Ferris Wheel"]
