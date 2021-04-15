@@ -66,7 +66,7 @@ RSpec.describe Carnival do
       expect(jeffco_fair.attendees).to eq([])
     end
 
-    xit 'can add attendees' do
+    it 'can add attendees' do
       bob = Attendee.new("Bob", 0)
       sally = Attendee.new('Sally', 20)
       johnny = Attendee.new("Johnny", 5)
